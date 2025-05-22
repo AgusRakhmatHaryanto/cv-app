@@ -64,29 +64,29 @@ export default function ProfileForm({ profile, onSuccess }: Props) {
         placeholder="Email"
         className="border p-2 w-full"
       />
-      <input 
-      value={phone}
-      onChange={(e)=> setPhone(e.target.value)}
-      placeholder="Phone"
-      className="border p-2 w-full"
+      <input
+        value={phone}
+        onChange={(e) => setPhone(e.target.value)}
+        placeholder="Phone"
+        className="border p-2 w-full"
       />
-      <input 
-      value={github}
-      onChange={(e)=> setGithub(e.target.value)}
-      placeholder="Github"
-      className="border p-2 w-full"
+      <input
+        value={github}
+        onChange={(e) => setGithub(e.target.value)}
+        placeholder="Github"
+        className="border p-2 w-full"
       />
-      <input 
-      value={address}
-      onChange={(e)=> setAddress(e.target.value)}
-      placeholder="Address"
-      className="border p-2 w-full"
+      <input
+        value={address}
+        onChange={(e) => setAddress(e.target.value)}
+        placeholder="Address"
+        className="border p-2 w-full"
       />
-      <input 
-      value={summary}
-      onChange={(e)=> setSummary(e.target.value)}
-      placeholder="Summary"
-      className="border p-2 w-full"
+      <input
+        value={summary}
+        onChange={(e) => setSummary(e.target.value)}
+        placeholder="Summary"
+        className="border p-2 w-full"
       />
       <button
         type="submit"

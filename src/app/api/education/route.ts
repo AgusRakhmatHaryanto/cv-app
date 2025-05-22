@@ -26,14 +26,6 @@ export async function POST(req: Request) {
   try {
     const body = await req.json();
 
-    // // Basic validation
-    // if (!body.name || !body.email) {
-    //   return NextResponse.json(
-    //     { message: "Name and email are required." },
-    //     { status: 400 }
-    //   );
-    // }
-
     const educationRef = await addDoc(collection(db, "education"), body);
 
     return NextResponse.json({
