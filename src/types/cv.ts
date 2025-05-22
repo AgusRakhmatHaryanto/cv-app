@@ -1,10 +1,10 @@
 export interface Profile {
-  name: string;
-  email: string;
-  phone: string;
-  github: string;
-  address: string;
-  summary: string;
+  name?: string;
+  email?: string;
+  phone?: string;
+  github?: string;
+  address?: string;
+  summary?: string;
 }
 
 export interface Education {
@@ -58,5 +58,5 @@ export interface Technology {
 }
 
 export interface RouteContext{
-  params: {id: string}
+  params: Promise<{id: string}>
 }
