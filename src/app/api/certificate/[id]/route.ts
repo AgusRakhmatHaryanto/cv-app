@@ -1,21 +1,15 @@
 import { db } from "@/lib/firebaseConfig";
-import { NextResponse } from "next/server";
+import { NextResponse, NextRequest } from "next/server";
 import { doc, updateDoc, deleteDoc } from "firebase/firestore";
 
 export async function PUT(
-  req: Request,
-  { params }: { params: { id: string } }
+  req: NextRequest,
+  { params }: { params:Promise< { id: string }> }
 ) {
   try {
-    const { id } = params;
-    if (!id) {
-      return NextResponse.json(
-        { message: "Missing certificate id" },
-        { status: 400 }
-      );
-    }
-
     const body = await req.json();
+    const id  = (await params).id;
+
     const docRef = doc(db, "certificate", id);
     await updateDoc(docRef, body);
 
@@ -30,17 +24,11 @@ export async function PUT(
 }
 
 export async function DELETE(
-  req: Request,
-  { params }: { params: { id: string } }
+  _: NextRequest,
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
-    const { id } = params;
-    if (!id) {
-      return NextResponse.json(
-        { message: "Missing certificate id" },
-        { status: 400 }
-      );
-    }
+    const { id } = await params;
 
     const docRef = doc(db, "certificate", id);
     await deleteDoc(docRef);
