@@ -56,3 +56,7 @@ export interface Technology {
   name: string;
   level?: string;
 }
+
+export interface RouteContext{
+  params: {id: string}
+}

@@ -1,14 +1,13 @@
 import { db } from "@/lib/firebaseConfig";
 import { NextResponse} from "next/server";
 import { doc, updateDoc, deleteDoc } from "firebase/firestore";
+import { RouteContext } from "@/types/cv";
 
-export async function PUT(
-  req: Request,
-  { params }: { params: { id: string } }
-) {
+
+export async function PUT(  req: Request,  context: RouteContext ) {
   try {
     const body = await req.json();
-    const { id } = params;
+    const { id } = context.params;
 
     const docRef = doc(db, "certificate", id);
     await updateDoc(docRef, body);
@@ -25,10 +24,10 @@ export async function PUT(
 
 export async function DELETE(
   _: Request,
-  { params }: { params: { id: string } }
+  context: RouteContext
 ) {
   try {
-    const { id } = params;
+    const { id } = context.params;
 
     const docRef = doc(db, "certificate", id);
     await deleteDoc(docRef);
