@@ -1,5 +1,5 @@
 import { db } from "@/lib/firebaseConfig";
-import { NextRequest, NextResponse } from "next/server";
+import {  NextResponse } from "next/server";
 import { collection, addDoc, getDocs } from "firebase/firestore";
 
 export async function GET() {
@@ -22,7 +22,7 @@ export async function GET() {
   }
 }
 
-export async function POST(req: NextRequest) {
+export async function POST(req: Request) {
   try {
     const body = await req.json();
 

@@ -1,9 +1,9 @@
 import { db } from "@/lib/firebaseConfig";
-import { NextResponse, NextRequest } from "next/server";
+import { NextResponse} from "next/server";
 import { doc, updateDoc, deleteDoc } from "firebase/firestore";
 
 export async function PUT(
-  req: NextRequest,
+  req: Request,
   { params }: { params: { id: string } }
 ) {
   try {
@@ -24,7 +24,7 @@ export async function PUT(
 }
 
 export async function DELETE(
-  _: NextRequest,
+  _: Request,
   { params }: { params: { id: string } }
 ) {
   try {
