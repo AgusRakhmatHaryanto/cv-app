@@ -4,11 +4,11 @@ import { doc, updateDoc, deleteDoc } from "firebase/firestore";
 
 export async function PUT(
   req: Request,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
     const body = await req.json();
-    const { id } = params;
+    const { id } = await params;
 
     const docRef = doc(db, "language", id);
     await updateDoc(docRef, body);
@@ -25,10 +25,10 @@ export async function PUT(
 
 export async function DELETE(
   _: Request,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
-    const { id } = params;
+    const { id } = await params;
 
     const docRef = doc(db, "language", id);
     await deleteDoc(docRef);
