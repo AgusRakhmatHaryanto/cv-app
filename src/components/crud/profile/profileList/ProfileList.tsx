@@ -1,5 +1,5 @@
 "use client";
-import { GenericList } from "../../reusable/GenericList";
+import { GenericList } from "../../../reusable/GenericList";
 import { ProfileItem } from "./ProfileItem";
 import { Profile, WithId } from "@/types/cv";
 

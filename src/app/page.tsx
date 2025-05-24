@@ -1,12 +1,14 @@
-import ProfileSection from "@/components/profile/ProfileSection";
-import EducationSection from "@/components/education/EducationSection";
-import ExperienceSection from "@/components/experience/ExperienceSesion";
-import ProjectSection from "@/components/project/ProjectSection";
-import CertificateSection from "@/components/certificate/CertificateSection";
-import AdditionalSection from "@/components/additional/AdditionalSection";
+import ProfileSection from "@/components/crud/profile/ProfileSection";
+import EducationSection from "@/components/crud/education/EducationSection";
+import ExperienceSection from "@/components/crud/experience/ExperienceSection";
+import ProjectSection from "@/components/crud/project/ProjectSection";
+import CertificateSection from "@/components/crud/certificate/CertificateSection";
+import AdditionalSection from "@/components/crud/additional/AdditionalSection";
+import Navbar from "@/components/reusable/Navbar"; 
 export default function HomePage() {
   return (
-    <div className="p-4 space-y-8">
+    <div className="p-4 space-y-8 pt-12">
+      <Navbar />
       <ProfileSection />
       <EducationSection />
       <ExperienceSection />
