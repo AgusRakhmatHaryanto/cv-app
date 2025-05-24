@@ -1,14 +1,16 @@
 "use client";
 
 import { useState, useEffect, FormEvent } from "react";
-import { Profile } from "@/types/cv";
+import { Profile, BaseFormProps } from "@/types/cv";
 
-type Props = {
-  profile?: Profile & { id: string }; // karena kamu pakai `profile.id`
-  onSuccess: () => void;
-};
+// type Props = {
+//   profile?: Profile & { id: string }; // karena kamu pakai `profile.id`
+//   onSuccess: () => void;
+// };
 
-export default function ProfileForm({ profile, onSuccess }: Props) {
+type ProfileFormProps = BaseFormProps<Profile,"profile">
+
+  export default function ProfileForm({ profile, onSuccess }: ProfileFormProps) {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");

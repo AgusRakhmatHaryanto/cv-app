@@ -1,8 +1,8 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import ProfileForm from "@/components/ProfileForm";
-import ProfileList from "@/components/ProfileList";
+import ProfileForm from "./profileForm/ProfileForm";
+import ProfileList from "./profileList/ProfileList";
 import { Profile } from "@/types/cv";
 
 export default function ProfileSection() {
@@ -23,18 +23,18 @@ export default function ProfileSection() {
   }, []);
 
   const handleAddProfile = () => {
-    setSelectedProfile(undefined);
+    setSelectedProfile(undefined); // Reset supaya form kosong
     setShowProfileForm(true);
   };
 
   const handleEditProfile = (profile: Profile & { id: string }) => {
-    setSelectedProfile(profile);
+    setSelectedProfile(profile); // Isi form dengan data profile yg mau diedit
     setShowProfileForm(true);
   };
 
   const handleFormSuccess = () => {
-    fetchProfiles();
-    setShowProfileForm(false);
+    fetchProfiles(); // Refresh data setelah berhasil submit
+    setShowProfileForm(false); // Sembunyikan form
   };
 
   return (

@@ -60,3 +60,35 @@ export interface Technology {
 export interface RouteContext {
   params: Promise<{ id: string }>;
 }
+
+export interface ExperienceProps {
+  experiences?: Experience & { id: string };
+  onSuccess: () => void;
+}
+
+export type BaseFormProps<T, K extends string> = {
+  [key in K]?: T & { id: string };
+} & {
+  onSuccess: () => void;
+  fields: FormField<T>[];
+  entityType: K;
+};
+
+export type FormField<T>={
+key: keyof T;
+label:string;
+ type?: 'text' | 'textarea' | 'number' | 'email' | 'date';
+  placeholder?: string;
+}
+
+export type WithId<T> = T & { id: string };
+
+export type ListActions<T> = {
+  onEdit?: (item: WithId<T>) => void;
+  onDelete?: (id: string) => Promise<void> | void;
+  customActions?: {
+    label: string;
+    handler: (item: WithId<T>) => void;
+    className?: string;
+  }[];
+};

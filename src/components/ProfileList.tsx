@@ -5,7 +5,7 @@ import { Profile } from "@/types/cv";
 type Props = {
   profiles: (Profile & { id: string })[];
   onEdit: (profile: Profile & { id: string }) => void;
-  onReload: () => void;
+  onReload: () => void; 
 };
 
 export default function ProfileList({ profiles, onEdit, onReload }: Props) {

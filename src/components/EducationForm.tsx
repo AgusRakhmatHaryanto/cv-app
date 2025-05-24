@@ -1,13 +1,19 @@
 "use client";
 
 import { useState, useEffect, FormEvent } from "react";
-import { Education } from "@/types/cv";
+import { BaseFormProps, Education } from "@/types/cv";
 
-type Props = {
-  educations?: Education & { id: string };
-  onSuccess: () => void;
-};
-export default function EducationForm({ educations, onSuccess }: Props) {
+// type Props = {
+//   educations?: Education & { id: string };
+//   onSuccess: () => void;
+// };
+
+type EducationFormProps = BaseFormProps<Education, "educations">;
+
+export default function EducationForm({
+  educations,
+  onSuccess,
+}: EducationFormProps) {
   const [name, setName] = useState("");
   const [location, setLocation] = useState("");
   const [from, setFrom] = useState("");
@@ -41,10 +47,21 @@ export default function EducationForm({ educations, onSuccess }: Props) {
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    const payload = { name, location, from, to, major, degree, gpa, description };
+    const payload = {
+      name,
+      location,
+      from,
+      to,
+      major,
+      degree,
+      gpa,
+      description,
+    };
 
     const method = educations ? "PUT" : "POST";
-    const url = educations ? `/api/education/${educations.id}` : `/api/education`;
+    const url = educations
+      ? `/api/education/${educations.id}`
+      : `/api/education`;
 
     await fetch(url, {
       method,
