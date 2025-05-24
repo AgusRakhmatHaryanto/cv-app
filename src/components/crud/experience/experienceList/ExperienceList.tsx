@@ -1,7 +1,7 @@
 "use client";
 import { Experience, WithId } from "@/types/cv";
 import { GenericList } from "@/components/reusable/GenericList";
-import ExperienceItem from "./ExperienceItem";
+import {ExperienceItem} from "./ExperienceItem";
 
 type ExperienceListProps = {
     experiences: WithId<Experience>[];

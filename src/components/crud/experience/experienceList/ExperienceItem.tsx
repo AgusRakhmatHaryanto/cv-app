@@ -5,7 +5,7 @@ type ExperienceItemProps = {
   className?: string;
 };
 
-export default function ExperienceItem({
+export function ExperienceItem({
   experience,
   className = "",
 }: ExperienceItemProps) {
