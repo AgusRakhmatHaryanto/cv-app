@@ -7,7 +7,7 @@ import AdditionalSection from "@/components/crud/additional/AdditionalSection";
 import Navbar from "@/components/reusable/Navbar";
 export default function HomePage() {
   return (
-    <div className="p-4 space-y-8 pt-12">
+    <div >
       <Navbar />
       <ProfileSection />
       <EducationSection />
