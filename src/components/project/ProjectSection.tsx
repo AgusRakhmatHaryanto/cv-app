@@ -1,4 +1,4 @@
-"use clint";
+"use client";
 import { useState, useEffect } from "react";
 import ProjectForm from "./projectForm/ProjectForm";
 import ProjectList from "./projectList/ProjectList";
