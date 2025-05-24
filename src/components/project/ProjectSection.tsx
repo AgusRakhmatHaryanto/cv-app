@@ -1,4 +1,4 @@
-"use clinet";
+"use clint";
 import { useState, useEffect } from "react";
 import ProjectForm from "./projectForm/ProjectForm";
 import ProjectList from "./projectList/ProjectList";
